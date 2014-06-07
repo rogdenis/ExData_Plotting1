@@ -1,0 +1,6 @@
+electroData <- read.table("household_power_consumption.txt",sep=";",header=TRUE)
+electroData <- subset(electroData,as.Date(electroData$Date,format="%d/%m/%Y")>="2007-02-01" & as.Date(electroData$Date,format="%d/%m/%Y")<="2007-02-02")
+par(mfrow=c(1,1),cex.lab=0.7, cex.axis=0.7, cex.main=1, cex.sub=0.7,mar=c(5,4,4,1))
+hist(as.numeric(as.vector(electroData$Global_active_power)),col="red",xlab="Global active power (kilowatts)",main="Global Active Power")
+dev.copy(png,"plot1.png")
+dev.off()
